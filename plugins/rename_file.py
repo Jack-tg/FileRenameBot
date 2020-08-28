@@ -41,6 +41,26 @@ async def rename_doc(bot, update):
             chat_id=update.chat.id,
             message_ids=update.message_id,
             revoke=True
+      try:
+        chat = await bot.get_chat_member("@Zed1Projctz", update.chat.id)
+        if chat.status=='kicked':
+            if edit_message:
+                await reply("You are Banned😌")
+            return False
+        else:
+            return True
+
+    except UserNotParticipant:
+        if edit_message:
+            await reply("Join @Zed1Projctz To Use Me")
+    except UserBannedInChannel:
+        if edit_message:
+                await reply("You are Banned😌")
+    except Exception:
+        LOGGER.exception("Unable to verify user")
+        if edit_message:
+                await reply("Something wenr Wrong 😴")
+    return False
         )
         return
     TRChatBase(update.from_user.id, update.text, "rename")

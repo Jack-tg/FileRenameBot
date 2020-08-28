@@ -41,7 +41,7 @@ import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 from pyrogram import Client, Filters, ChatPermissions
 from pyrogram import InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram.errors import UserNotParticipant, UserBannedInChannel*
+from pyrogram.errors import UserNotParticipant, UserBannedInChannel
    
 
 

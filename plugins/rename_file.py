@@ -52,7 +52,7 @@ async def rename_doc(bot, update):
             chat_id=update.chat.id,
             message_ids=update.message_id,
             revoke=True
-      try:
+     
         chat = await bot.get_chat_member("@Zed1Projctz", update.chat.id)
         if chat.status=='kicked':
             if edit_message:

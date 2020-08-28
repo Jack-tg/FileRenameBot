@@ -31,7 +31,18 @@ from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 # https://stackoverflow.com/a/37631799/4723940
 from PIL import Image
-from database.database import *
+from database.database import 
+if bool(os.environ.get("WEBHOOK", False)):
+    from sample_config import Config
+else:
+    from config import Config
+
+import pyrogram
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+from pyrogram import Client, Filters, ChatPermissions
+from pyrogram import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.errors import UserNotParticipant, UserBannedInChannel*
+   
 
 
 @pyrogram.Client.on_message(pyrogram.Filters.command(["rename"]))

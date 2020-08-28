@@ -37,3 +37,5 @@ class Translation(object):
 2.🔹 <b>Reply to that message with /rename New file name.extnsion</b>
 3.🔹 <b>I Can Also Convert Streamable Videos Into Document</b>"""
 
+
+    REPLY_TO_DOC_FOR_C2V = "Reply to a Telegram media to convert"

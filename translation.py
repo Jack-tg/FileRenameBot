@@ -1,7 +1,7 @@
 class Translation(object):
-    START_TEXT = """ <b>I'm A Simple File Renamer Bot With Permanent Thumbnail support!💯</b>
+    START_TEXT = """ <b>I'm A Simple converter Bot With Permanent Thumbnail support!💯</b>
 
-<b>Send me any Telegram file and reply to that file with /rename NewName.extn</b>
+
 <b>Bot Maintained By: @noob_admin</b>"""
 
     RENAME_403_ERR = "What Are You Doing? Bruuh!!"
@@ -12,7 +12,7 @@ class Translation(object):
     RCHD_TG_API_LIMIT = "Downloaded in {} seconds.\nDetected File Size: {}\nSorry WTF Do You Think! I'll Upload It?"
     AFTER_SUCCESSFUL_UPLOAD_MSG = "**Thank you for Using Me   ❤️**"
     AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS = "Downloaded in {} seconds.\nUploaded in {} seconds"
-    NOT_AUTH_USER_TEXT = "CONTACT @No_OnE_Kn0wS_Me "
+    NOT_AUTH_USER_TEXT = "CONTACT @jack_of_tg "
     NOT_AUTH_USER_TEXT_FILE_SIZE = "IF You Got This Message You Should Contact @No_OnE_Kn0wS_Me "
     SAVED_CUSTOM_THUMB_NAIL = "<b>thumbnail Saved ✅ This Is Permanent Until</b> /deletethumbnail❤"
     DEL_ETED_CUSTOM_THUMB_NAIL = "thumbnail cleared succesfully😝"

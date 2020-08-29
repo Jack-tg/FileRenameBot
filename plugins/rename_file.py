@@ -45,7 +45,7 @@ from pyrogram.errors import UserNotParticipant, UserBannedInChannel
    
 
 
-@pyrogram.Client.on_message(pyrogram.Filters.command(["rename"]))
+@pyrogram.Client.on_message(pyrogram.Filters.command(["C2F"]))
 async def rename_doc(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(

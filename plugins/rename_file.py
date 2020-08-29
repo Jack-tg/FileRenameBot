@@ -31,18 +31,7 @@ from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 # https://stackoverflow.com/a/37631799/4723940
 from PIL import Image
-from database.database import* 
-if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
-else:
-    from config import Config
-
-import pyrogram
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-from pyrogram import Client, Filters, ChatPermissions
-from pyrogram import InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram.errors import UserNotParticipant, UserBannedInChannel
-   
+from database.database import *
 
 
 @pyrogram.Client.on_message(pyrogram.Filters.command(["C2F"]))
@@ -52,17 +41,15 @@ async def rename_doc(bot, update):
             chat_id=update.chat.id,
             message_ids=update.message_id,
             revoke=True
-     
-
         )
         return
-    TRChatBase(update.from_user.id, update.text, "rename")
+    TRChatBase(update.from_user.id, update.text, "change")
     if (" " in update.text) and (update.reply_to_message is not None):
         cmd, file_name = update.text.split(" ", 1)
-        if len(file_name) > 64:
+        if len(file_name) > 70:
             await update.reply_text(
                 Translation.IFLONG_FILE_NAME.format(
-                    alimit="64",
+                    alimit="70",
                     num=len(file_name)
                 )
             )
@@ -141,7 +128,7 @@ async def rename_doc(bot, update):
                 chat_id=update.chat.id,
                 document=new_file_name,
                 thumb=thumb_image_path,
-                caption=file_name,
+                caption=file_name + description,
                 # reply_markup=reply_markup,
                 reply_to_message_id=update.reply_to_message.message_id,
                 progress=progress_for_pyrogram,

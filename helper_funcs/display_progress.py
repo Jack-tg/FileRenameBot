@@ -11,6 +11,9 @@ logger = logging.getLogger(__name__)
 import math
 import os
 import time
+import pyrogram
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+from pyrogram import Client, Filters, InlinekeyboardMarkup
 
 # the secret configuration specific things
 if bool(os.environ.get("WEBHOOK", False)):

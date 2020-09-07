@@ -21,6 +21,31 @@ else:
 # the Strings used for this "thing"
 from translation import Translation
 
+active_downloads = []
+def progress(current,total,client,msg_id)
+  global active_doenload
+print("(:.if)%,format(current * 100/total))
+   if msg_id not in active_downloads:
+     client.stop_transmission
+
+@client_on_message(Filters, document)
+async def Download_documents(client,message)
+button = [[InlinekeyboardButton('cancel',callback_data='cancel download')]]
+reply_markup = InlinekeyboardMarkup(button)
+msg = message.reply('Downloading',reply_markup=reply_markup)
+await message.download(progress=progress,progress_args=(client,msg.message_id))
+await msg.edit('Download complete')
+  
+
+@client.on_callback_query(Filters.create(lamba_,cb:cb.data='cancel download'))
+  async def cancel_download(bot, callback):
+msg_id = callback.message.message_id
+try:
+     active_downloads.remove(msg_id)
+  expect valueError:
+        await callback.message.edit_text('This task is already cancelled')
+  else:
+      await callback.answer('your processing cancelled soon' , show_alert=True)
 
 async def progress_for_pyrogram(
     current,
